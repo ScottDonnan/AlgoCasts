@@ -9,39 +9,13 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    let anagram = true;
-    const aObj = createCounter(stringA)
-    const bObj = createCounter(stringB)
-  
-    function createCounter(string) {
-      const charMap = {}
-      const regString = string.replace(/[^\w]/g, "").toLowerCase()
-
-      for (let elem of regString) {
-        charMap[elem] ? charMap[elem]++ : charMap[elem] = 1
-      }
-
-      return charMap
-    }
-  
-
-    if (Object.keys(aObj).length > Object.keys(bObj).length) {
-      for (let key in aObj) {
-        if (aObj[key] !== bObj[key]) {
-            anagram = false
-          }
-      }
-    } else {
-      for (let key in bObj) {
-        if (aObj[key] !== bObj[key]) {
-            anagram = false
-          }
-      }
-    }
-
-    return anagram
-
+    return cleanUp(stringA) === cleanUp(stringB)
 }
+
+function cleanUp(string) {
+    return string.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
+}
+
 
 module.exports = anagrams;
 
@@ -82,4 +56,35 @@ module.exports = anagrams;
 
 //     return (anagram)
 
+// }
+
+//-----------------------------------------------
+
+// function anagrams(stringA, stringB) {
+//     const aObj = createCounter(stringA)
+//     const bObj = createCounter(stringB)
+  
+//     if (Object.keys(aObj).length !== Object.keys(bObj).length) {
+//       return false
+//     }
+
+//     for (let key in bObj) {
+//         if (aObj[key] !== bObj[key]) {
+//             return false
+//         }
+//     }
+
+//     return true
+
+// }
+
+// function createCounter(string) {
+//     const charMap = {}
+//     const regString = string.replace(/[^\w]/g, "").toLowerCase()
+
+//     for (let elem of regString) {
+//       charMap[elem] = charMap[elem] + 1 || 1
+//     }
+
+//     return charMap
 // }
