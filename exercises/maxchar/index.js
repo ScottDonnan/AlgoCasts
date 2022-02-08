@@ -9,6 +9,7 @@ function maxChar(str) {
     const counter = new Object
     let largest = str[0];
     for (const value of str) {
+        console.log(value)
         counter[value] = counter[value] + 1 || 1
         if (counter[value] > counter[largest]) {
             largest = value
