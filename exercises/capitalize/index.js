@@ -12,7 +12,7 @@ function capitalize(str) {
 
    for (let i = 0; i < str.length; i++) {
        if (i === 0 || str[i-1] === ' ') {
-           capString = capString + str[i].toUpperCase()
+           capString += str[i].toUpperCase()
        } else {
            capString += str[i]
        }
