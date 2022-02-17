@@ -24,6 +24,32 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+   
+    //initialize new queue to be weaved
+
+    //loop through longest source 1 or 2 weave
+        // if sourceOne.peek
+            // pop value from sourceOne, shift it to weave queue
+        // if sourcetwo.peek
+            // pop value from source2, shift it to weave queue
+
+    //return new queue with weaved data from 2 sources
+
+    const weaved = new Queue()
+
+    while (sourceOne.peek() || sourceTwo.peek()) {
+        if (sourceOne.peek()) {
+            weaved.add(sourceOne.remove())
+        }
+        if (sourceTwo.peek()) {
+            weaved.add(sourceTwo.remove())
+        }
+    }
+
+    return weaved
+
+
+}
 
 module.exports = weave;
