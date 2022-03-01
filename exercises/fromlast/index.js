@@ -11,6 +11,29 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+// assign 2 variables (first, last) to first node;
+// move "first" n nodes into the list
+// iterate through the list while first.next != null
+    //move first and last one node forward in list
+
+// return last 
+
+function fromLast(list, n) {
+    let endCheck = list.head
+    let valueCheck = list.head;
+
+    for (let i = 0; i < n; i++) {
+        endCheck = endCheck.next
+        console.log('endcheck', endCheck)
+    }
+
+    
+    while (endCheck.next) {
+        endCheck = endCheck.next;
+        valueCheck = valueCheck.next;
+    }
+
+    return valueCheck;
+}
 
 module.exports = fromLast;

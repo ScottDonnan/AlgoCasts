@@ -12,6 +12,37 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+
+// initiate a slow and fast variable
+// move through list stopping when fast = slow or fast = null
+    // if at any point fast === slow
+        // return true list is circular
+    // if at any point fast === null
+        // return false we found end of list
+function circular(list) {
+    let fast = list.head;
+    let slow = list.head;
+
+    do {
+        fast = fast.next.next;
+        slow = slow.next;
+    } while (fast.next && fast.next.next && fast !== slow)
+
+    return fast === slow;
+}
 
 module.exports = circular;
+
+// let fast = list.head;
+//     let slow = list.head;
+
+//     while (fast.next && fast.next.next) {
+//         fast = fast.next.next;
+//         slow = slow.next;
+
+//         if (slow === fast) {
+//             return true;
+//         }
+//     };
+
+//     return false;

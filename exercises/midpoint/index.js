@@ -12,6 +12,21 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-function midpoint(list) {}
+// use 2 variables (slow & fast) to track progress through list
+// loop through linkedList while fast node has something defined after it and again after that
+    //when loop stops return slow
+
+function midpoint(list) {
+    let slow = list.head
+    let fast = list.head
+
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    return slow;
+
+}
 
 module.exports = midpoint;
